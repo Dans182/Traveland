@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import "../../styles/imageGalery.css";
 
 export const ImageGalery = () => {

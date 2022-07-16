@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import {
   GoogleMap,
   useLoadScript,
@@ -67,13 +67,17 @@ const Map = () => {
         </h3>
         <div className="display-map">
           {store.trip &&
-            store.trip.destination &&
-            store.user &&
-            store.user.city_of_residence ? (
+          store.trip.destination &&
+          store.user &&
+          store.user.city_of_residence ? (
             <GoogleMap
               zoom={13}
               center={{ lat, lng }}
-              mapContainerStyle={{ width: "98%", height: "550px", borderRadius: "10px" }}
+              mapContainerStyle={{
+                width: "98%",
+                height: "550px",
+                borderRadius: "10px",
+              }}
             >
               <Marker position={{ lat, lng }} />
               {response !== null && (

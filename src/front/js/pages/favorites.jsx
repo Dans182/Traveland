@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import "../../styles/favorites.css";

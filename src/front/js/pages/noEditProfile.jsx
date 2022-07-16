@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link, useParams } from "react-router-dom";
 import moment from "moment";
 import "../../styles/profile.css";
@@ -43,7 +43,6 @@ export const NoEditProfile = () => {
             <div className="data-profile">
               <h4 className="user-title">@{store.profile.username}</h4>
             </div>
-
           </div>
           <div className="information-box pt-1">
             {/*  boton 2 */}
@@ -77,8 +76,8 @@ export const NoEditProfile = () => {
           <div className=" ">
             <div className="d-flex overflow-auto">
               <div className="wrapper-trips">
-                {store.userTrips
-                  ? store.userTrips.map((e) => {
+                {store.userTrips ? (
+                  store.userTrips.map((e) => {
                     return (
                       <div
                         key={e.id}
@@ -152,11 +151,11 @@ export const NoEditProfile = () => {
                       </div>
                     );
                   })
-                  : (
-                    <h5 className="text-trips text-center text-dark mt-4">
-                      You don't have trips created yet.
-                    </h5>
-                  )}
+                ) : (
+                  <h5 className="text-trips text-center text-dark mt-4">
+                    You don't have trips created yet.
+                  </h5>
+                )}
               </div>
             </div>
           </div>

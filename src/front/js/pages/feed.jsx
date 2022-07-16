@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
 import moment from "moment";
 import "../../styles/feed.css";
@@ -37,8 +37,9 @@ export const Feed = () => {
                   onChange={(e) => {
                     setSearchTerm({
                       ...searchTerm,
-                      destination:
-                        e.target.value.replace(/\b\w/g, l => l.toUpperCase()).trim()
+                      destination: e.target.value
+                        .replace(/\b\w/g, (l) => l.toUpperCase())
+                        .trim(),
                     });
                   }}
                 />
@@ -101,7 +102,7 @@ export const Feed = () => {
                       <i className="fas fa-user-friends"></i>{" "}
                       {e.trip_in_match
                         ? e.trip_in_match.filter((x) => x.accepted == true)
-                          .length
+                            .length
                         : 0}
                       /{e.people}{" "}
                     </div>

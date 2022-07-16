@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext, useEffect } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { useHistory } from "react-router-dom";
 import "../../styles/loginAndRegister.css";
 import logo from "../component/img/traveland.png";
@@ -60,7 +60,6 @@ export const Login = () => {
       if (data.created) {
         initialState(); //state = ""
         setSwitchPanel(false); //Switch to the form panel to login
-
       } else {
         alert(error);
       }
@@ -99,7 +98,6 @@ export const Login = () => {
     user.password = "";
     user.firstname = "";
     user.lastname = "";
-
   };
 
   return (
@@ -113,10 +111,9 @@ export const Login = () => {
           id="container"
         >
           <div className="form-container sign-up-container">
-
             {/* SIGN UP FORM */}
 
-            <div className="form-move" >
+            <div className="form-move">
               <div className="social-container"></div>
               <h3
                 className="title-login"
@@ -138,16 +135,17 @@ export const Login = () => {
                 style={
                   user.username == "" || !onlyLettersAndNumbers(user.username)
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
                   setUser(
                     {
-                      ...user, username: e.target.value.trim()
+                      ...user,
+                      username: e.target.value.trim(),
                     },
                     setInfoError(false)
                   )
@@ -161,13 +159,13 @@ export const Login = () => {
                 placeholder="Email"
                 style={
                   user.email == "" ||
-                    !emailIsValid(user.email) ||
-                    !emailInput(user.email)
+                  !emailIsValid(user.email) ||
+                  !emailInput(user.email)
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
@@ -186,10 +184,10 @@ export const Login = () => {
                 style={
                   user.password == ""
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
@@ -242,7 +240,6 @@ export const Login = () => {
             </div>
           </div>
           <div className="form-container sign-in-container">
-
             {/*  SIGN IN FORM */}
 
             <div className="form-move">
@@ -263,7 +260,8 @@ export const Login = () => {
                 data-for="botonTooltipEmailIn"
                 placeholder="Email"
                 onChange={(e) => {
-                  setUser({ ...user, email: e.target.value.trim() }), setInfoError2(false);
+                  setUser({ ...user, email: e.target.value.trim() }),
+                    setInfoError2(false);
                 }}
               />
               <input
@@ -271,7 +269,8 @@ export const Login = () => {
                 className="inp-data"
                 placeholder="Password"
                 onChange={(e) => {
-                  setUser({ ...user, password: e.target.value.trim() }), setInfoError2(false);
+                  setUser({ ...user, password: e.target.value.trim() }),
+                    setInfoError2(false);
                 }}
               />
               <button

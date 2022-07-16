@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import "../../styles/changeBannerModal.css";
 
 export const ChangeBannerModal = ({ closeModal, editUser, user }) => {
@@ -45,11 +45,16 @@ export const ChangeBannerModal = ({ closeModal, editUser, user }) => {
           </div>
           <div className="">
             <div className="">
-
-              <div
-                className="">
-
-                <img className="banner-min" src={selectedImage == undefined ? store.profile.banner_picture : URL.createObjectURL(selectedImage)} alt="img" />
+              <div className="">
+                <img
+                  className="banner-min"
+                  src={
+                    selectedImage == undefined
+                      ? store.profile.banner_picture
+                      : URL.createObjectURL(selectedImage)
+                  }
+                  alt="img"
+                />
               </div>
 
               {/* COVER & PROFILE PICTURE*/}
@@ -60,7 +65,6 @@ export const ChangeBannerModal = ({ closeModal, editUser, user }) => {
                     className="image-selected5"
                     src="https://res.cloudinary.com/dmogh4y33/image/upload/v1656708631/camera-icon-circle-21_k0bqrq.png"
                   />
-
                 </label>
                 <input
                   className=""

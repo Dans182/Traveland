@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { useHistory } from "react-router-dom";
 import "../../styles/createTripModal.css";
 
@@ -51,7 +51,7 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
       editTrip({
         ...trip,
         destination_picture: e.target.files[0],
-      })
+      });
       setSelectedImage(e.target.files[0]);
     }
   };
@@ -92,16 +92,16 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
 
   const onlyLettersAndSpaces = (str) => {
     return /^[A-Ñ-Za-ñ-z\s]*$/.test(str);
-  }
+  };
 
   const restoreState = () => {
-    trip.destination = store.trip.destination,
-      trip.cost = store.trip.cost,
-      trip.start_of_the_trip = store.trip.start_of_the_trip,
-      trip.end_of_the_trip = store.trip.end_of_the_trip,
-      trip.people = store.trip.people,
-      trip.text = store.trip.text
-  }
+    (trip.destination = store.trip.destination),
+      (trip.cost = store.trip.cost),
+      (trip.start_of_the_trip = store.trip.start_of_the_trip),
+      (trip.end_of_the_trip = store.trip.end_of_the_trip),
+      (trip.people = store.trip.people),
+      (trip.text = store.trip.text);
+  };
 
   const deleteTrip = async () => {
     try {
@@ -118,7 +118,7 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
         setConfirmDelete(false);
         history.push("/mytrips");
       }
-    } catch (e) { }
+    } catch (e) {}
   };
 
   return (
@@ -156,7 +156,15 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
           </div>
           <div className="content-body">
             <div className="banner-box">
-              <img className="modal-banner" src={selectedImage == undefined ? store.trip.destination_picture : URL.createObjectURL(selectedImage)} alt="img" />
+              <img
+                className="modal-banner"
+                src={
+                  selectedImage == undefined
+                    ? store.trip.destination_picture
+                    : URL.createObjectURL(selectedImage)
+                }
+                alt="img"
+              />
             </div>
             <div className="banner-x">
               <div className="image-upload">
@@ -187,20 +195,23 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 maxLength={25}
                 style={
                   trip.destination == "" ||
-                    store.trip.destination == 0 ||
-                    !onlyLettersAndSpaces(trip.destination)
+                  store.trip.destination == 0 ||
+                  !onlyLettersAndSpaces(trip.destination)
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
-                  editTrip({
-                    ...trip, destination: e.target.value.replace(/\b\w/g, l => l.toUpperCase()).trim()
-
-                  },
+                  editTrip(
+                    {
+                      ...trip,
+                      destination: e.target.value
+                        .replace(/\b\w/g, (l) => l.toUpperCase())
+                        .trim(),
+                    },
                     setInfoError(false)
                   )
                 }
@@ -218,14 +229,15 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 style={
                   trip.people < 1
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
-                  editTrip({ ...trip, people: e.target.value },
+                  editTrip(
+                    { ...trip, people: e.target.value },
                     setInfoError(false)
                   )
                 }
@@ -242,16 +254,18 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 style={
                   trip.start_of_the_trip > trip.end_of_the_trip
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
-                  editTrip({ ...trip, start_of_the_trip: e.target.value },
+                  editTrip(
+                    { ...trip, start_of_the_trip: e.target.value },
                     setInfoError(false)
-                  )}
+                  )
+                }
               ></input>
 
               {/* END OF THE TRIP */}
@@ -267,14 +281,15 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 style={
                   trip.start_of_the_trip > trip.end_of_the_trip
                     ? {
-                      borderStyle: "solid",
-                      borderWidth: "3px",
-                      borderColor: "#DB2C2C",
-                    }
+                        borderStyle: "solid",
+                        borderWidth: "3px",
+                        borderColor: "#DB2C2C",
+                      }
                     : null
                 }
                 onChange={(e) =>
-                  editTrip({ ...trip, end_of_the_trip: e.target.value },
+                  editTrip(
+                    { ...trip, end_of_the_trip: e.target.value },
                     setInfoError(false)
                   )
                 }
@@ -288,7 +303,8 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 defaultValue={store.trip.transport}
                 placeholder="none"
                 onChange={(e) =>
-                  editTrip({ ...trip, transport: e.target.value },
+                  editTrip(
+                    { ...trip, transport: e.target.value },
                     setInfoError(false)
                   )
                 }
@@ -312,7 +328,8 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                 defaultValue={store.trip.cost}
                 placeholder="Cost"
                 onChange={(e) =>
-                  editTrip({ ...trip, cost: e.target.value },
+                  editTrip(
+                    { ...trip, cost: e.target.value },
                     setInfoError(false)
                   )
                 }
@@ -331,12 +348,13 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                   placeholder="About me"
                   maxLength={280}
                   onChange={(e) =>
-                    editTrip({
-                      ...trip,
-                      text:
-                        e.target.value.charAt(0).toUpperCase() +
-                        e.target.value.slice(1).toLowerCase(),
-                    },
+                    editTrip(
+                      {
+                        ...trip,
+                        text:
+                          e.target.value.charAt(0).toUpperCase() +
+                          e.target.value.slice(1).toLowerCase(),
+                      },
                       setInfoError(false)
                     )
                   }
@@ -350,7 +368,6 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
             }
           </div>
           <div className="modal-footer">
-
             {confirmDelete ? (
               <div
                 className="trim modal fade show"
@@ -400,7 +417,6 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
             ) : null}
 
             <div className="save-delete">
-
               <i
                 className="delete-trip-button fa-solid fa-trash"
                 title="delete trip"
@@ -421,8 +437,7 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
                     !trip.destination == "" &&
                     trip.people >= 1
                   ) {
-                    actions.editTrip(trip),
-                      closeModal()
+                    actions.editTrip(trip), closeModal();
                   } else {
                     messageError();
                   }
@@ -441,8 +456,8 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
           ) : null}
 
           {trip.destination == "" ||
-            trip.start_of_the_trip.length == 0 ||
-            trip.end_of_the_trip.length == 0 ? (
+          trip.start_of_the_trip.length == 0 ||
+          trip.end_of_the_trip.length == 0 ? (
             <div className="message-error">
               <i className="icon-error fas fa-exclamation-circle"></i>
               <p>the field is required</p>
@@ -457,8 +472,8 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
           ) : null}
 
           {trip.start_of_the_trip > trip.end_of_the_trip &&
-            trip.start_of_the_trip != "" &&
-            trip.end_of_the_trip != "" ? (
+          trip.start_of_the_trip != "" &&
+          trip.end_of_the_trip != "" ? (
             <div className="message-error">
               <i className="icon-error fas fa-exclamation-circle"></i>
               <p>the dates do not match</p>
@@ -473,6 +488,6 @@ export const EditTripModal = ({ closeModal, editTrip, trip }) => {
           ) : null}
         </div>
       </div>
-    </Fragment >
+    </Fragment>
   );
 };

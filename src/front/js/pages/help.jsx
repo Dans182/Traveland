@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useContext } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
 import "../../styles/help.css";
 

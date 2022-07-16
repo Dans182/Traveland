@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, Fragment, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link } from "react-router-dom";
 import "../../styles/message.css";
 
@@ -44,17 +44,25 @@ export const Message = () => {
         await actions.getUserTrips();
         await getMessages();
       }
-    } catch (e) { }
+    } catch (e) {}
   };
   return (
     <Fragment>
       <div className="footer-abajo">
         <div className="message-box position-static d-block py-1 mt-5 mb-4">
-          {(store.match && store.match.length == 1 && newMessage && newMessage.length == 0) || (newMessage && newMessage.length == 1 && store.match && store.match.length == 0) ? (
+          {(store.match &&
+            store.match.length == 1 &&
+            newMessage &&
+            newMessage.length == 0) ||
+          (newMessage &&
+            newMessage.length == 1 &&
+            store.match &&
+            store.match.length == 0) ? (
             <h3 className="sms-title mt-3 mb-3 text-center text-white">
               <b>1 message.</b>
             </h3>
-          ) : (store.match && store.match.length > 1) || (newMessage && newMessage.length > 1) ? (
+          ) : (store.match && store.match.length > 1) ||
+            (newMessage && newMessage.length > 1) ? (
             <h3 className="sms-title mt-3 mb-3 text-center text-white">
               <b>{store.match.length + newMessage.length} messages.</b>
             </h3>
@@ -62,7 +70,8 @@ export const Message = () => {
           <div className="d-flex overflow-auto ">
             <div className="wrapper-message">
               <div className="container">
-                {(store.match && store.match.length > 0) || (newMessage && newMessage.length > 0) ? (
+                {(store.match && store.match.length > 0) ||
+                (newMessage && newMessage.length > 0) ? (
                   store.match
                     .sort((a, b) => a.id - b.id)
                     .map((e) => {
@@ -74,8 +83,8 @@ export const Message = () => {
                               e.accepted
                                 ? { background: "#94C973" }
                                 : e.rejected
-                                  ? { background: "#FF7A69" }
-                                  : { background: "white" }
+                                ? { background: "#FF7A69" }
+                                : { background: "white" }
                             }
                           >
                             <div className="text-center">
@@ -99,8 +108,8 @@ export const Message = () => {
                                       e.accepted
                                         ? { color: "#130A0D" }
                                         : e.rejected
-                                          ? { color: "#130A0D" }
-                                          : { color: "black" }
+                                        ? { color: "#130A0D" }
+                                        : { color: "black" }
                                     }
                                   >
                                     {e.username}{" "}
@@ -155,8 +164,8 @@ export const Message = () => {
                                   e.accepted
                                     ? { color: "#130A0D" }
                                     : e.rejected
-                                      ? { color: "#130A0D" }
-                                      : { color: "#130A0D" }
+                                    ? { color: "#130A0D" }
+                                    : { color: "#130A0D" }
                                 }
                               >
                                 {" "}
@@ -172,8 +181,8 @@ export const Message = () => {
                                   e.accepted
                                     ? { color: "#130A0D" }
                                     : e.rejected
-                                      ? { color: "#130A0D" }
-                                      : { color: "#130A0D" }
+                                    ? { color: "#130A0D" }
+                                    : { color: "#130A0D" }
                                 }
                               >
                                 {e.message}
@@ -207,20 +216,26 @@ export const Message = () => {
                             e.confirmed
                               ? { background: "#6CE1DD" }
                               : e.rejected
-                                ? { background: "#FF7A69" }
-                                : { background: "white" }
+                              ? { background: "#FF7A69" }
+                              : { background: "white" }
                           }
                         >
                           <div className="text-center">
                             <div>
                               <Link
-                                to={"/noEditProfile/" + e.user_id_of_trip_creator}
+                                to={
+                                  "/noEditProfile/" + e.user_id_of_trip_creator
+                                }
                                 className="text-decoration-none"
                               ></Link>
                             </div>
 
                             <div className="div-delete">
-                              <Link to={"/noEditProfile/" + e.user_id_of_trip_creator}>
+                              <Link
+                                to={
+                                  "/noEditProfile/" + e.user_id_of_trip_creator
+                                }
+                              >
                                 <img
                                   className="message-avatar"
                                   src={e.user_picture}
@@ -232,8 +247,8 @@ export const Message = () => {
                                     e.accepted
                                       ? { color: "#130A0D" }
                                       : e.rejected
-                                        ? { color: "#130A0D" }
-                                        : { color: "black" }
+                                      ? { color: "#130A0D" }
+                                      : { color: "black" }
                                   }
                                 >
                                   {e.user_name}{" "}
@@ -272,8 +287,8 @@ export const Message = () => {
                                 e.accepted
                                   ? { color: "#130A0D" }
                                   : e.rejected
-                                    ? { color: "#130A0D" }
-                                    : { color: "#130A0D" }
+                                  ? { color: "#130A0D" }
+                                  : { color: "#130A0D" }
                               }
                             >
                               {" "}
@@ -289,8 +304,8 @@ export const Message = () => {
                                 e.accepted
                                   ? { color: "#130A0D" }
                                   : e.rejected
-                                    ? { color: "#130A0D" }
-                                    : { color: "#130A0D" }
+                                  ? { color: "#130A0D" }
+                                  : { color: "#130A0D" }
                               }
                             >
                               {e.message}

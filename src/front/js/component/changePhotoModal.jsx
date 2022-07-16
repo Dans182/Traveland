@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import "../../styles/changePhotoModal.css";
 
 export const ChangePhotoModal = ({ closeModal, editUser, user }) => {
@@ -67,7 +67,6 @@ export const ChangePhotoModal = ({ closeModal, editUser, user }) => {
                       className="photo-selected1"
                       src="https://res.cloudinary.com/dmogh4y33/image/upload/v1656708631/camera-icon-circle-21_k0bqrq.png"
                     />
-
                   </label>
                   <input
                     className=""

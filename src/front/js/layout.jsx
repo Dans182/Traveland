@@ -1,19 +1,19 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { Context } from "./store/appContext";
-import { Feed } from "./pages/feed";
-import { Trip } from "./pages/trip";
-import { Login } from "./pages/login";
-import { Profile } from "./pages/profile";
-import { Message } from "./pages/message";
-import { MyTrips } from "./pages/myTrips";
-import { NoEditProfile } from "./pages/noEditProfile";
-import { Favorites } from "./pages/favorites";
-import { Help } from "./pages/help";
-import injectContext from "./store/appContext";
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-import { ScrollToTop } from './component/scrollToTop';
+import { Context } from "./store/appContext.jsx";
+import { Feed } from "./pages/feed.jsx";
+import { Trip } from "./pages/trip.jsx";
+import { Login } from "./pages/login.jsx";
+import { Profile } from "./pages/profile.jsx";
+import { Message } from "./pages/message.jsx";
+import { MyTrips } from "./pages/myTrips.jsx";
+import { NoEditProfile } from "./pages/noEditProfile.jsx";
+import { Favorites } from "./pages/favorites.jsx";
+import { Help } from "./pages/help.jsx";
+import injectContext from "./store/appContext.jsx";
+import { Navbar } from "./component/navbar.jsx";
+import { Footer } from "./component/footer.jsx";
+import { ScrollToTop } from "./component/scrollToTop.jsx";
 
 //create your first component
 const Layout = () => {

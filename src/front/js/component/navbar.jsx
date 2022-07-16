@@ -1,6 +1,6 @@
 import React, { Fragment, useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import image from "./img/traveland.png";
 import "../../styles/navbar.css";
 
@@ -11,7 +11,6 @@ export const Navbar = () => {
   const [newMessage, setNewMessage] = useState([]);
 
   useEffect(() => {
-
     getMessages();
   }, []);
 
@@ -24,9 +23,7 @@ export const Navbar = () => {
     });
     const data = await response.json();
     setNewMessage(data.messages);
-
   };
-
 
   return (
     <Fragment>
@@ -55,32 +52,40 @@ export const Navbar = () => {
             </li>
             {/*  {newMessage.length} */}
             <li className="">
-              <Link to="/message" className="navbar-icon me-4 text-light " onClick={async () => {
-                await actions.readMessages();
-                await getMessages();
-              }}>
+              <Link
+                to="/message"
+                className="navbar-icon me-4 text-light "
+                onClick={async () => {
+                  await actions.readMessages();
+                  await getMessages();
+                }}
+              >
                 {" "}
-                {store.match && newMessage &&
-                  store.match.length > 0 &&
-                  store.match.filter((x) => x.read != true).length > 0 && newMessage.length > 0 ? (
+                {store.match &&
+                newMessage &&
+                store.match.length > 0 &&
+                store.match.filter((x) => x.read != true).length > 0 &&
+                newMessage.length > 0 ? (
                   <div className="message-count">
                     {" "}
-                    {store.match.filter((x) => x.read != true).length + newMessage.length}
-
+                    {store.match.filter((x) => x.read != true).length +
+                      newMessage.length}
                   </div>
                 ) : store.match &&
                   store.match.length > 0 &&
-                  store.match.filter((x) => x.read != true).length > 0 ? <div className="message-count">
-                  {" "}
-                  {store.match.filter((x) => x.read != true).length}
-
-                </div> : newMessage &&
-                  newMessage.length > 0 && newMessage.filter((x) => x.read != true).length > 0 ? (
+                  store.match.filter((x) => x.read != true).length > 0 ? (
+                  <div className="message-count">
+                    {" "}
+                    {store.match.filter((x) => x.read != true).length}
+                  </div>
+                ) : newMessage &&
+                  newMessage.length > 0 &&
+                  newMessage.filter((x) => x.read != true).length > 0 ? (
                   <div className="message-count">
                     {" "}
                     {newMessage.filter((x) => x.read != true).length}
-
-                  </div>) : null}
+                  </div>
+                ) : null}
                 <i
                   className="ras fas fa-envelope"
                   onClick={() => actions.resetearTrip()}
@@ -105,7 +110,18 @@ export const Navbar = () => {
                     className="rounded-circle mt-1"
                   />
                 </p>
-                <ul className="d-down dropdown-menu text-small" aria-labelledby="dropdownUser1" style={{ position: "absolute", inset: "0px 0px auto auto", margin: "0px", marginTop: "20px", transform: "translate(0px, 34px)" }} data-popper-placement="bottom-end" >
+                <ul
+                  className="d-down dropdown-menu text-small"
+                  aria-labelledby="dropdownUser1"
+                  style={{
+                    position: "absolute",
+                    inset: "0px 0px auto auto",
+                    margin: "0px",
+                    marginTop: "20px",
+                    transform: "translate(0px, 34px)",
+                  }}
+                  data-popper-placement="bottom-end"
+                >
                   <li className="link-title ps-3 pb-1">
                     Hello <b>{store.user.firstname}</b>
                   </li>
@@ -154,7 +170,11 @@ export const Navbar = () => {
                       <p
                         className="nav-logout"
                         onClick={() => actions.logout()}
-                      ><i className="fas fa-sign-out-alt" style={{ fontSize: "1.3rem", marginRight: "15px" }}></i>
+                      >
+                        <i
+                          className="fas fa-sign-out-alt"
+                          style={{ fontSize: "1.3rem", marginRight: "15px" }}
+                        ></i>
                         Sign out
                       </p>
                     </li>

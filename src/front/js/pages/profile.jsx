@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Context } from "../store/appContext";
+import { Context } from "../store/appContext.jsx";
 import { Link, useParams } from "react-router-dom";
-import { ChangeBannerModal } from "../component/changeBannerModal";
-import { EditInformationModal } from "../component/editInformationModal";
-import { ChangePhotoModal } from "../component/changePhotoModal";
-import { CreateTripModal } from "../component/createTripModal";
+import { ChangeBannerModal } from "../component/changeBannerModal.jsx";
+import { EditInformationModal } from "../component/editInformationModal.jsx";
+import { ChangePhotoModal } from "../component/changePhotoModal.jsx";
+import { CreateTripModal } from "../component/createTripModal.jsx";
 import moment from "moment";
 import "../../styles/profile.css";
 
