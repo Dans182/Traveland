@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       profile: {},
       userProfiles: [],
       userTrips: [],
-      url: "https://3001-dans182-traveland-fps8jymtr8m.ws-eu54.gitpod.io/api/",
+      url: "https://traveland-world.herokuapp.com/api/",
       user_id: null,
       trips: [],
       logged: null,
