@@ -203,7 +203,7 @@ const getState = ({ getStore, getActions, setStore }) => {
               .split("T")[0]; */ //new Date se encarga de cambiar un string a date(fecha), luego .toISOString().split('T')[0] aplica el formato a yyyy-mm-dd
           /*  data.trip.end_of_the_trip = new Date(data.trip.end_of_the_trip)
              .toISOString()
-             .split("T")[0]; */ //new Date se encarga de cambiar un string a date(fecha), luego .toISOString().split('T')[0] aplica el formato a yyyy-mm-dd
+             .split("T")[0]; */ //new Date  se encarga de cambiar un string a date(fecha), luego .toISOString().split('T')[0] aplica el formato a yyyy-mm-dd
           if (resp.status == 200) {
             setStore({ trip: data.trip });
           } else {
