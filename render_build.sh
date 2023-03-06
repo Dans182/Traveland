@@ -5,6 +5,6 @@ set -o errexit
 npm install
 npm run build
 
-pip install
+pipenv install
 
-pip run upgrade
+pipenv run upgrade
