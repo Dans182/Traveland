@@ -4,7 +4,7 @@
 services:
   - type: web # valid values: https://render.com/docs/yaml-spec#type
     region: ohio
-    name: sample-service-name #aca le ponen el nombre que quieran que tenga la pagina
+    name: traveland #aca le ponen el nombre que quieran que tenga la pagina
     env: python # valid values: https://render.com/docs/yaml-spec#environment
     buildCommand: "./render_build.sh"
     startCommand: "gunicorn wsgi --chdir ./src/"
@@ -21,6 +21,8 @@ services:
         fromDatabase:
           name: postgresql-trapezoidal-42170
           property: connectionString
+      - key: FLASK_APP_KEY
+        value: any key works
 
 databases: # Render PostgreSQL database
   - name: postgresql-trapezoidal-42170
