@@ -5,6 +5,9 @@ verify_ssl = true
 
 [dev-packages]
 
+[pipenv]
+install_search_all_sources = true
+
 [packages]
 flask = "*"
 sqlalchemy = "*"
