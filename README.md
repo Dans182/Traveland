@@ -13,7 +13,7 @@ React Icons → `npm i react-icons`
 React Tooltips → `npm i react-tooltips`
 
 
-#### Descripción de que trata la plataforma:
+### Descripción de que trata la plataforma:
 
 Se busca que gente que tenga ganas de viajar pero no se quiera sentir sola, pueda buscar acompañantes a través de nuestra web para poder encontrar mutuals y además de estar en compañia, poder tener la posibilidad de hacer amistades.
 
