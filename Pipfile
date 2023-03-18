@@ -1,12 +1,10 @@
 [[source]]
+install_search_all_sources = true
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-
-[pipenv]
-install_search_all_sources = true
 
 [packages]
 flask = "*"
