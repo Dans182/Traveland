@@ -1,11 +1,11 @@
 # Librerias instaladas aparte de las que ya usamos habitualmente:
 
-MomentJS → `npm install moment --save`
-Google Maps JavaScript API → `npm i @react-google-maps/api`
+MomentJS → `npm install moment --save`\ 
+Google Maps JavaScript API → `npm i @react-google-maps/api`\ 
 Google Maps JavaScript API React Wrapper on NPM → `npm i @googlemaps/react-wrapper`
-Google Maps Geocode → `npm install --save react-geocode`
-React Icons → `npm i react-icons`
-React Tooltips → `npm i react-tooltips`
+Google Maps Geocode → `npm install --save react-geocode`\ 
+React Icons → `npm i react-icons`\ 
+React Tooltips → `npm i react-tooltips`\ 
 
 Descripción de que trata la plataforma:
 
