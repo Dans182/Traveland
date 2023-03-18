@@ -20,6 +20,8 @@ flask-admin = "*"
 flask-jwt-extended = "*"
 typing-extensions = "*"
 shell = "*"
+importlib-metadata = "*"
+importlib-resources = "*"
 
 [requires]
 python_version = "3.8"
