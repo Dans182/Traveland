@@ -3,7 +3,7 @@
   "engines": {
     "node": "16.x"
   },
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.jsx",
   "scripts": {
@@ -11,17 +11,15 @@
     "build": "webpack --config webpack.prod.js"
   },
   "author": {
-    "name": "Alejandro Sanchez",
-    "url": "http://alesanchezr.com/"
+    "name": "Daniel Gaiteiro López",
+    "url": "https://github.com/Dans182/"
   },
   "contributors": [
     {
-      "name": "Alejandro Sanchez",
-      "url": "http://alesanchezr.com/"
+      "name": "Jorge León"
     },
     {
-      "name": "Ignacio Cordoba",
-      "url": "http://github.com/nachovz"
+      "name": "Sergi Madrigal"
     }
   ],
   "license": "ISC",
@@ -45,7 +43,6 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-webpack-plugin": "^3.1.1",
     "file-loader": "^6.2.0",
-    "gh-pages": "^3.2.3",
     "html-loader": "^3.0.1",
     "html-webpack-plugin": "^5.5.0",
     "parse-github-url": "^1.0.2",
@@ -80,7 +77,6 @@
     "moment": "^2.29.3",
     "prop-types": "^15.6.1",
     "react": "^16.8.4",
-    "react-bootstrap": "^2.4.0",
     "react-dom": "^16.8.4",
     "react-geocode": "^0.2.3",
     "react-icons": "^4.4.0",
