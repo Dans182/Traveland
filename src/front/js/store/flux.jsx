@@ -9,7 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       profile: {},
       userProfiles: [],
       userTrips: [],
-      url: "https://3001-dans182-traveland-elta89h4ibu.ws-eu87.gitpod.io/api/",
+      url: "https://traveland.onrender.com/api/",
       user_id: null,
       trips: [],
       logged: null,
